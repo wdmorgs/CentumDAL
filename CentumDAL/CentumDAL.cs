@@ -11,12 +11,12 @@ namespace CentumDisDAL
 {
     public class CFHDisLayer
     {
-        public static void ImportCFHCSVFile(string csv_File_Path)
+        public static bool ImportCFHCSVFile(string csvFilePath)
         {
             DataTable csvData = new DataTable();
             try
             {
-                using (TextFieldParser csvReader = new TextFieldParser(csv_file_path))
+                using (TextFieldParser csvReader = new TextFieldParser(csvFilePath))
                 {
                     csvReader.SetDelimiters(new string[] { "," });
                     csvReader.HasFieldsEnclosedInQuotes = true;
@@ -50,4 +50,4 @@ namespace CentumDisDAL
         }
     }
 }
-}
+
