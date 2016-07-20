@@ -27,27 +27,27 @@ namespace AlarmRationalizer
             InitializeComponent();
         }
 
-        private void btnBrowse_Click(object sender, RoutedEventArgs e)
+        
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
-            openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            openFileDialog1.Filter = "csv files (*.csv)|*.csv";
-            openFileDialog1.FilterIndex = 2;
-            openFileDialog1.RestoreDirectory = true;
+        }
 
-            if (openFileDialog1.FileName != null)
-            {
-                try
-                {
-                    CFHDisLayer obDislayer = new CFHDisLayer();
-                    obDislayer.ImportCFHCSVFile(openFileDialog1.FileName);
-                }
-                catch (Exception ex)
-                {
-                   // MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
-                }
-            }
+        private void ImportCSV_Click(object sender, RoutedEventArgs e)
+        {
+            frmImport frmImp = new frmImport();
+            frmImp.ShowDialog();
+        }
+
+        private void MouseEnterExitArea(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+
+        }
+
+        private void MouseLeaveArea(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+
         }
     }
 }

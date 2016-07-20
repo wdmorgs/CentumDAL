@@ -5,19 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AlarmRationalizer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <StackPanel>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="318" Width="517">
-            <TabItem x:Name="tabImport" Header="Import">
-                <Grid Background="#FFE5E5E5">
-                    <TextBox x:Name="txtCSVFilePath" HorizontalAlignment="Left" Height="26" Margin="76,17,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="334"/>
-                    <Button x:Name="btnBrowse" Content="Browse" HorizontalAlignment="Left" Height="26" Margin="415,17,0,0" VerticalAlignment="Top" Width="82" Click="btnBrowse_Click"/>
-                    <Label x:Name="label" Content="CSV File " HorizontalAlignment="Left" Height="26" Margin="10,17,0,0" VerticalAlignment="Top" Width="103"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-        </TabControl>
-    </StackPanel>
+        Title="Alarm Rationalizer" Height="475.564" Width="795.71">
+    <DockPanel>
+        <Menu x:Name="Menu" Height="26" VerticalAlignment="Top" DockPanel.Dock="Top">
+            <MenuItem Header="File">
+                <MenuItem Header="Import CSV" MouseEnter ="MouseEnterExitArea"
+                MouseLeave ="MouseLeaveArea" Click ="ImportCSV_Click" HorizontalAlignment="Left" Width="159" Margin="0,0,-14,0"/>
+            </MenuItem>
+        </Menu>
+
+    </DockPanel>
 </Window>

@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 using System.Data;
-using Microsoft.VisualBasic.FileIO;
+using Microsoft.VisualBasic.FileIO; 
 
 namespace CentumDisDAL
 {
@@ -14,6 +15,12 @@ namespace CentumDisDAL
         public bool ImportCFHCSVFile(string csvFilePath)
         {
             DataTable csvData = new DataTable();
+            long lnNumAlarms = 0;
+
+            /*Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
+            Debug.AutoFlush = true;
+            Debug.Indent(); */
+
             try
             {
                 using (TextFieldParser csvReader = new TextFieldParser(csvFilePath))
@@ -39,7 +46,10 @@ namespace CentumDisDAL
                             }
                         }
                         csvData.Rows.Add(fieldData);
+                        Debug.WriteLine("{0}, {1}, {2}", fieldData[0].ToString(), fieldData[1].ToString(), fieldData[2].ToString());
+                        lnNumAlarms += 1;
                     }
+                    Debug.WriteLine("{0} Alarms Imported", lnNumAlarms);
                 }
             }
             catch (Exception ex)
