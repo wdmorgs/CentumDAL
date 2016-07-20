@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
+using CentumDisDAL;
 
 namespace AlarmRationalizer
 {
@@ -30,7 +31,7 @@ namespace AlarmRationalizer
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
 
-            openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.SystemMyDocuments));
+            openFileDialog1.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             openFileDialog1.Filter = "csv files (*.csv)|*.csv";
             openFileDialog1.FilterIndex = 2;
             openFileDialog1.RestoreDirectory = true;
@@ -39,11 +40,12 @@ namespace AlarmRationalizer
             {
                 try
                 {
-                    
+                    CFHDisLayer obDislayer = new CFHDisLayer();
+                    obDislayer.ImportCFHCSVFile(openFileDialog1.FileName);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                   // MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
                 }
             }
         }

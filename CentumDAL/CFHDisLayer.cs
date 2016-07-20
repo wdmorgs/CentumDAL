@@ -11,7 +11,7 @@ namespace CentumDisDAL
 {
     public class CFHDisLayer
     {
-        public static bool ImportCFHCSVFile(string csvFilePath)
+        public bool ImportCFHCSVFile(string csvFilePath)
         {
             DataTable csvData = new DataTable();
             try
